@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pwd=`PWD`
+echo ${pwd}
+
+docker run -it -p 8090:8080 -v ${pwd}/src:/src xmlrpc_dev ash

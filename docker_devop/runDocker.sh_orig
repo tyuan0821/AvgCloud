@@ -1,0 +1,29 @@
+#!/bin/bash
+
+source '/home/qtombos/.babun-docker/setup.sh'
+
+export CYG_PATH=`echo $CYGWIN_HOME | sed -e 's@C:@/c@'`
+echo "Your HOME dir: (${CYG_PATH}/${HOME})"
+
+export SSH_PATH=$CYG_PATH/home/qtombos/.ssh
+echo ".ssh: $SSH_PATH"
+
+#export ETC_PATH=$CYG_PATH/etc/ 
+#echo "etc: $ETC_PATH"
+
+echo "USER: $USER"
+
+echo "docker run -it \
+	-v ${SSH_PATH}/id_rsa:/home/avgdev/.ssh/id_rsa_orig \
+	-v ${CYG_PATH}/${HOME}/.gitconfig:/home/avgdev/.gitconfig \
+	-v ${CYG_PATH}/${HOME}/HSS_Proto/CloudifyAVG/docker_devop/startup.sh:/home/avgdev/startup.sh \
+	-v /workspace \
+	--rm \
+	-u avgdev \
+	--name avgdevops \
+	armdocker.rnd.ericsson.se/proj_hss/avg_devops:2  bash"
+
+#
+#	-v ${ETC_PATH}/passwd:/etc/passwd:ro \
+#	-v ${ETC_PATH}/groups:/etc/groups:ro \
+#

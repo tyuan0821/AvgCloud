@@ -1,0 +1,37 @@
+FROM alpine
+
+#ENV https_proxy 'http://172.23.0.100:8080'
+#ENV http_proxy 'http://172.23.0.100:8080'
+
+#RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing"  >> /etc/apk/repositories
+#RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main"  >> /etc/apk/repositories
+#RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community"  >> /etc/apk/repositories
+
+RUN apk add --update \
+    bash \
+    curl-dev \
+    g++ \
+    git \
+    make \
+    openrc \
+    openssh \
+    vim \
+ && rm -rf /var/cache/apk/*
+
+RUN mkdir -p /lib/gtest/ /lib/xmlrpc_c/ \
+   && adduser -D -h /home/ci -s /bin/bash -u 1000 -G root -S ci \
+   && mkdir -p /home/ci/workspace \
+   && chown -R ci:root /home/ci
+
+COPY lib  /lib
+#COPY .ssh /home/ci/
+
+USER ci
+COPY startup.sh /home/ci/
+
+#RUN rc-update add sshd && /etc/init.d/sshd start
+
+#EXPOSE 22
+CMD ["bash"]
+
+
