@@ -4,7 +4,7 @@ import multiprocessing
 
 command = sys.argv
 
-source_dir = '/root/workspace/CloudifyAVG/proj_PA2/src'
+source_dir = '/root/workspace/CloudAVG/proj_PA2/src'
 
 
 def searchFiles(filename):

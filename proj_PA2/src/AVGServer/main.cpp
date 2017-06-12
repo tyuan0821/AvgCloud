@@ -2,7 +2,7 @@
 
 int main()
 {
-    utility::string_t address = U("http://localhost:34468");
+    utility::string_t address = U("http://172.17.0.3:34468");
     uri_builder uri(address);
     auto addr = uri.to_string();
 

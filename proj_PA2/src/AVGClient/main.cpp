@@ -2,13 +2,13 @@
 
 int main()
 {
-   AVGClient client(U("http://localhost:34468"));
+   AVGClient client(U("http://172.17.0.3:34468"));
    uri_builder builder(U("/"));
 
 /*providing sample values for request*/
-   std::string userId = "ericsson.se";
+   std::string userId = "tao.yuan";
 
-   HSS_AvgUserIdTypeDt::HSS_AvgUserIdTypeDt_INTERNAL userIdType = HSS_AvgUserIdTypeDt::HSS_AvgUserIdTypeDt_INTERNAL::isimE;
+   HSS_AvgUserIdTypeDt::HSS_AvgUserIdTypeDt_INTERNAL userIdType = HSS_AvgUserIdTypeDt::HSS_AvgUserIdTypeDt_INTERNAL::usimE;
    
    HSS_AvgResynchInfoDt resynchInfo;
    resynchInfo.rand = "111111";

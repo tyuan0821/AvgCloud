@@ -77,7 +77,7 @@ json::value AVGserver::get_auth_vector(json::value param)
     avgVector["ck"] = json::value("00001111100000022222000000");
     avgVector["ik"] = json::value("00001111100000022222003333");
     avgVector["autn"] = json::value("aaaa1111100bb0022222cc3333");
-    ucout << "Sent generated AV";
+    ucout << "Sent generated Authentication Vector" << std::endl;
     return avgVector;
 }
 
