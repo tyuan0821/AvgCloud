@@ -12,8 +12,7 @@ int main()
    
    HSS_AvgResynchInfoDt resynchInfo;
    resynchInfo.rand = "111111";
-   resynchInfo.auts = "8347883275";
-   
+   resynchInfo.auts = "8347883275"; 
    int numberOfAVs = 1;
    
    HSS_AvgReqNodeTypeDt::HSS_AvgReqNodeTypeDt_INTERNAL requestNodeType = HSS_AvgReqNodeTypeDt::HSS_AvgReqNodeTypeDt_INTERNAL::cscfE;
